@@ -9,15 +9,15 @@ Flight::route('GET /', function(){
     echo 'hello world!' . getenv('MAIN_API_PATH');
 });
 
-Flight::route('GET /list', function(){
+Flight::route('GET /api/list', function(){
     echo 'hello world!' . getenv('MAIN_API_PATH');
 });
 
-Flight::route('GET /converter/@from/@to/@price', function($from, $to, $price){
+Flight::route('GET /api/converter/@from/@to/@price', function($from, $to, $price){
     echo 'hello world!' . getenv('MAIN_API_PATH');
 });
 
-Flight::route('GET /history/@value', function($value){
+Flight::route('GET /api/history/@value', function($value){
     echo 'hello world!' . getenv('MAIN_API_PATH');
 });
 
