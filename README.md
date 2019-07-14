@@ -1,13 +1,33 @@
 # Exchange Rate App
 
+[![MIT Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
+
+
 ######Exchange rate - NBRM
+
+* [Setup API](#setup-api)
+* [API endpoints](#api-endpoints)
+* [Docker Devbox](#docker-devbox---api)
+
+
+## Setup API
+- navigate to root dir `cd <project_name>`
+- find folder where live composer.json
+- go in that folder and run: `composer install`
+- next run `composer dump-autoload -o`
+- make copy of `.env.example`
+- rename `.env.example` to `.env`
 
 
 ## API endpoints
-- `GET /api/search/@name` - search by full name
-- `GET /api/search/like/@name` - search like keyword
+##### GET
+- `GET /` - html for api endpoints
+##### POST
+- `POST /api/list` - show all exchange rates
+- `POST /api/converter/@from/@to/@price` - convert money value from deference value 
+- `POST /api/history/@value` - 15 days history for deference money types
 
-## Devbox with Docker container for API
+## Docker Devbox - API
 
 ### Build the image:
 
