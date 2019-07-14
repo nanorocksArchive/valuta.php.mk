@@ -3,7 +3,7 @@
 [![MIT Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
 
 
-######Exchange rate - NBRM
+###Exchange rate - CONTENT
 
 * [Setup API](#setup-api)
 * [API endpoints](#api-endpoints)
