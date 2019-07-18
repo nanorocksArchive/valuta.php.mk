@@ -53,8 +53,14 @@ Flight::route('GET /api/converter/@from/@to/@price', function($from, $to, $price
         $validator = 1;
     }
 
+    if($from == $to)
+    {
+        $validator = 1;
+    }
+
     if($validator)
     {
+
         echo Flight::json($response);
         die();
     }
@@ -77,19 +83,36 @@ Flight::route('GET /api/converter/@from/@to/@price', function($from, $to, $price
         }
     }
 
-    if(!is_array($to) || !is_array($from))
+    $denar = 0;
+    $finalPrice = 0;
+    // FOR DENAR-VALUE ONLY
+    if(is_string($to) && strtoupper($to) == 'MKD')
     {
-        echo Flight::json($response);
-        die();
+        $finalPrice = (floatval($price) * floatval($from['sreden']));
+        $denar = 1;
+    }
+    else if(is_string($from) && strtoupper($from) == 'MKD')
+    {
+        $finalPrice = (floatval($price) / floatval($to['sreden']));
+        $denar = 1;
     }
 
-    $finallPrice = ( floatval($price) * floatval($from['sreden']) ) / floatval($to['sreden']);
+    if (!$denar)
+    {
+        if(!is_array($to) || !is_array($from))
+        {
+            echo Flight::json($response);
+            die();
+        }
+
+        $finalPrice = ( floatval($price) * floatval($from['sreden']) ) / floatval($to['sreden']);
+    }
 
     $response['error'] = false;
     $response['status_text'] = 'OK';
     $response['status_code'] = 200;
     $response['data'] = [
-      'price' => $finallPrice
+      'price' => $finalPrice
     ];
 
     echo Flight::json($response);
