@@ -8,7 +8,8 @@
 * [Setup API](#setup-api)
 * [API endpoints](#api-endpoints)
 * [Docker Devbox](#docker-devbox---api)
-
+* [Responsive design](#responsive-design)
+* [Apache Cordova export](#apache-cordova-export)
 
 ## Setup API
 - navigate to root dir `cd <project_name>`
@@ -40,3 +41,7 @@
 - `docker run -p 8080:80 -d -v $(pwd):/var/www/exchange-rate-api exchange-rate-api`
 
 
+## Responsive design
+
+
+## Apache Cordova export
