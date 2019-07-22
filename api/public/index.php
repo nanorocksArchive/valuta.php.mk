@@ -18,30 +18,11 @@ $url = getenv('URL');
 
 
 /**
- * Routes
+ * Validate request for converter
  */
-Flight::route('GET /', function() use ($apiEndpoints) {
-    echo "<pre>" . $apiEndpoints . "</pre>";
-    die();
-});
-
-Flight::route('GET /api/list', function() use ($url){
-    $jsonResponse = file_get_contents($url);
-    $response = json_decode($jsonResponse,true);
-    echo Flight::json($response);
-    die();
-});
-
-Flight::route('GET /api/converter/@from/@to/@price', function($from, $to, $price) use ($url){
-
+function validateConverter($to, $from, $price) : int
+{
     $validator = 0;
-
-    $response = [
-        'error' => true,
-        'status_text' => 'Invalid parameters',
-        'status_code' => 200,
-        'data' => null
-    ];
 
     if(!is_numeric($price))
     {
@@ -58,9 +39,38 @@ Flight::route('GET /api/converter/@from/@to/@price', function($from, $to, $price
         $validator = 1;
     }
 
+    return $validator;
+}
+
+
+
+/**
+ * Routes
+ */
+Flight::route('GET /', function() use ($apiEndpoints) {
+    echo "<pre>" . $apiEndpoints . "</pre>";
+    die();
+});
+
+Flight::route('GET /api/list', function() use ($url){
+    $jsonResponse = file_get_contents($url);
+    $response = json_decode($jsonResponse,true);
+    echo Flight::json($response);
+    die();
+});
+
+Flight::route('GET /api/converter/@from/@to/@price', function($from, $to, $price) use ($url){
+
+    $response = [
+        'error' => true,
+        'status_text' => 'Invalid parameters',
+        'status_code' => 200,
+        'data' => null
+    ];
+
+    $validator = validateConverter($to, $from, $price);
     if($validator)
     {
-
         echo Flight::json($response);
         die();
     }
