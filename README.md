@@ -23,10 +23,9 @@
 ## API endpoints
 ##### GET
 - `GET /` - html for api endpoints
-##### POST
-- `POST /api/list` - show all exchange rates
-- `POST /api/converter/@from/@to/@price` - convert money value from deference value 
-- `POST /api/history/@value` - 15 days history for deference money types
+- `GET /api/list` - show all exchange rates
+- `GET /api/converter/@from/@to/@price` - convert money value from deference value 
+- `GET /api/history/@value` - 15 days history for deference money types
 
 ## Docker Devbox - API
 
