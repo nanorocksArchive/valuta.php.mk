@@ -157,6 +157,7 @@ class ExchangeRate extends ValidateExchangeRate
             die();
         }
 
+
         $validator = self::validateCurrencyValue($value, $rates['data']);
 
         if ($validator) {

@@ -4,7 +4,13 @@ class ValidateExchangeRate
 {
 
     /**
+     *
      * Validate request for converter
+     *
+     * @param $to
+     * @param $from
+     * @param $price
+     * @return int
      */
     public static function validateConverter($to, $from, $price): int
     {
@@ -25,19 +31,26 @@ class ValidateExchangeRate
         return $validator;
     }
 
+    /**
+     * Validate currency value
+     *
+     * @param $value
+     * @param $data
+     * @return int
+     */
     public static function validateCurrencyValue($value, $data)
     {
         $validator = 0;
 
-        if (!is_numeric($value) || !ctype_alpha($value) || !ctype_alnum($value)) {
-            $validator = 1;
+        if (is_numeric($value) || ctype_alnum($value)) {
+            return 1;
         }
 
         $value = strtoupper($value);
-
         foreach ($data as $rate) {
-            if ($value != $rate['oznaka']) {
+            if ($value == $rate['oznaka']) {
                 $validator = 1;
+                break;
             }
         }
 
