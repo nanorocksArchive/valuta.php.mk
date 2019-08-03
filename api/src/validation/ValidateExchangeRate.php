@@ -43,13 +43,13 @@ class ValidateExchangeRate
         $validator = 0;
 
         if (is_numeric($value) || ctype_alnum($value)) {
-            return 1;
+            $validator = 1;
         }
 
         $value = strtoupper($value);
         foreach ($data as $rate) {
             if ($value == $rate['oznaka']) {
-                $validator = 1;
+                $validator = 0;
                 break;
             }
         }
