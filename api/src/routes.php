@@ -1,6 +1,5 @@
 <?php
 
-
 Flight::route('GET /', ['ExchangeRate', 'onload']);
 
 Flight::route('GET /api/list', ['ExchangeRate','list']);
