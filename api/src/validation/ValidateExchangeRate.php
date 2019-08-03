@@ -4,7 +4,13 @@ class ValidateExchangeRate
 {
 
     /**
+     *
      * Validate request for converter
+     *
+     * @param $to
+     * @param $from
+     * @param $price
+     * @return int
      */
     public static function validateConverter($to, $from, $price): int
     {
@@ -25,6 +31,13 @@ class ValidateExchangeRate
         return $validator;
     }
 
+    /**
+     * Validate currency value
+     *
+     * @param $value
+     * @param $data
+     * @return int
+     */
     public static function validateCurrencyValue($value, $data)
     {
         $validator = 0;
