@@ -176,7 +176,6 @@ class ExchangeRate extends ValidateExchangeRate
 
         // last 15 days
         $dateNow = date('Y-m-d');
-
         // Implement caching if date not change
         Flight::lastModified($dateNow);
 
