@@ -9,7 +9,15 @@ $dotenv->load();
 /**
  * Set default configuration data
  */
-ExchangeRate::$url = getenv('URL');
-ExchangeRate::$apiEndpoints = getenv('API_CONTENT');
-ExchangeRate::$customUrl =  getenv('MAIN_API_PATH');
-ExchangeRate::$token =  getenv('SECRET_TOKEN');
+ExchangeRateClass::$url = getenv('URL');
+ExchangeRateClass::$apiEndpoints = getenv('API_CONTENT');
+ExchangeRateClass::$customUrl =  getenv('MAIN_API_PATH');
+ExchangeRateClass::$token =  getenv('SECRET_TOKEN');
+
+
+/**
+ * Set flight template folder path
+ */
+
+Flight::set('flight.views.path', __DIR__ . '/template');
+
