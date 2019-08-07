@@ -1,134 +1,41 @@
 <?php
 
-
-class ExchangeRate extends ValidateExchangeRate
+class HistoryClass extends ExchangeRateClass
 {
 
-    public static $url;
+    public $validator;
 
-    public static $apiEndpoints;
-
-    public static $customUrl;
-
-    public static $token;
-
-    /**
-     * On load static content
-     */
-    public static function onload()
+    public function __construct(
+        ExchangeRateHelper $v
+    )
     {
-        echo "<pre>" . self::$apiEndpoints . "</pre>";
-        die();
+        $this->validator = $v;
     }
 
     /**
-     * List add exchange rats
-     */
-    public static function list()
-    {
-
-        $url = self::$url;
-        try {
-
-            $jsonResponse = file_get_contents($url);
-            $response = json_decode($jsonResponse, true);
-
-        } catch (Exception $e) {
-            $response = [
-                'error' => true,
-                'status_text' => 'Internal server error',
-                'status_code' => 500,
-                'data' => null
-            ];
-        }
-
-        echo Flight::json($response);
-        die();
-    }
-
-
-    /**
-     * Convert price from from - to
+     * Validate currency value
      *
-     * @param $from
-     * @param $to
-     * @param $price
+     * @param $value
+     * @param $data
+     * @return int
      */
-    public static function converter($from, $to, $price)
+    public static function validateCurrencyValue($value, $data)
     {
-        $response = [
-            'error' => true,
-            'status_text' => 'Invalid parameters',
-            'status_code' => 200,
-            'data' => null
-        ];
+        $validator = 0;
 
-        $validator = self::validateConverter($to, $from, $price);
-        if ($validator) {
-            echo Flight::json($response);
-            die();
+        if (is_numeric($value) || ctype_alnum($value)) {
+            $validator = 1;
         }
 
-        $from = strtoupper($from);
-        $to = strtoupper($to);
-
-        $url = self::$url;
-        try {
-
-            $jsonResponse = file_get_contents($url);
-            $rates = json_decode($jsonResponse, JSON_UNESCAPED_UNICODE);
-
-        } catch (Exception $e) {
-
-            $response = [
-                'error' => true,
-                'status_text' => 'Internal server error',
-                'status_code' => 500,
-                'data' => null
-            ];
-
-            echo Flight::json($response);
-            die();
-        }
-
-        foreach ($rates['data'] as $rate) {
-            if ($rate['oznaka'] == $from) {
-                $from = $rate;
-            }
-            if ($rate['oznaka'] == $to) {
-                $to = $rate;
+        $value = strtoupper($value);
+        foreach ($data as $rate) {
+            if ($value == $rate['oznaka']) {
+                $validator = 0;
+                break;
             }
         }
 
-        $denar = 0;
-        $finalPrice = 0;
-        // FOR DENAR-VALUE ONLY
-        if (is_string($to) && strtoupper($to) == 'MKD') {
-            $finalPrice = (floatval($price) * floatval($from['sreden']));
-            $denar = 1;
-        } else if (is_string($from) && strtoupper($from) == 'MKD') {
-            $finalPrice = (floatval($price) / floatval($to['sreden']));
-            $denar = 1;
-        }
-
-        if (!$denar) {
-            if (!is_array($to) || !is_array($from)) {
-                echo Flight::json($response);
-                die();
-            }
-
-            $finalPrice = (floatval($price) * floatval($from['sreden'])) / floatval($to['sreden']);
-        }
-
-        $response['error'] = false;
-        $response['status_text'] = 'OK';
-        $response['status_code'] = 200;
-        $response['data'] = [
-            'price' => $finalPrice
-        ];
-
-        echo Flight::json($response);
-        die();
+        return $validator;
     }
 
     /**
