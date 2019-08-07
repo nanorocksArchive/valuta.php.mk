@@ -1,6 +1,6 @@
 <?php
 
-class LoadExchangeRateClassHelper extends MainClass
+class LoadClass extends ExchangeRateClass
 {
 
     /**
@@ -8,8 +8,7 @@ class LoadExchangeRateClassHelper extends MainClass
      */
     public static function onload()
     {
-        echo "<pre>" . self::$apiEndpoints . "</pre>";
-        die();
+        Flight::render('index.php', array('endpoints' => self::$apiEndpoints));
     }
 
 }
