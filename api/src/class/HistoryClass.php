@@ -1,148 +1,59 @@
 <?php
 
-class HistoryClass extends ExchangeRateClass
+class HistoryClass extends ExchangeRateHelper
 {
 
-    public $validator;
-
-    public function __construct(
-        ExchangeRateHelper $v
-    )
-    {
-        $this->validator = $v;
-    }
-
     /**
-     * Validate currency value
-     *
-     * @param $value
-     * @param $data
-     * @return int
-     */
-    public static function validateCurrencyValue($value, $data)
-    {
-        $validator = 0;
-
-        if (is_numeric($value) || ctype_alnum($value)) {
-            $validator = 1;
-        }
-
-        $value = strtoupper($value);
-        foreach ($data as $rate) {
-            if ($value == $rate['oznaka']) {
-                $validator = 0;
-                break;
-            }
-        }
-
-        return $validator;
-    }
-
-    /**
-     * History of 15 days behind
+     * History of 15 days ago
      *
      * @param $value
      */
     public static function history($value)
     {
-        $url = self::$url;
-        try {
-
-            $jsonResponse = file_get_contents($url);
-            $rates = json_decode($jsonResponse, JSON_UNESCAPED_UNICODE);
-
-        } catch (Exception $e) {
-
-            $response = [
-                'error' => true,
-                'status_text' => 'Internal server error',
-                'status_code' => 500,
-                'data' => null
-            ];
-
-            echo Flight::json($response);
-            die();
+        $haveData = self::getDataFromUrl($rates);
+        if (!$haveData || $rates == null || !isset($rates['data'])) {
+            $response = self::prepareResponse(true, 'Internal server error', 500);
+            return Flight::json($response);
         }
 
-
         $validator = self::validateCurrencyValue($value, $rates['data']);
-
         if ($validator) {
-            $response = [
-                'error' => true,
-                'status_text' => 'Invalid parameters',
-                'status_code' => 200,
-                'data' => null
-            ];
-
-            echo Flight::json($response);
-            die();
+            $response = self::prepareResponse(true, 'Invalid parameters', 200);
+            return Flight::json($response);
         }
 
         $value = strtoupper($value);
 
-        // last 15 days
+        // last 15 days - get current date
         $dateNow = date('Y-m-d');
-        // Implement caching if date not change
+        // Implement caching if date not changed
         Flight::lastModified($dateNow);
 
         $responseData = [];
 
         for ($i = 0; $i < 15; $i++) {
-            $dateBehind = date('Y-m-d', strtotime($dateNow . ' -' . $i . ' day'));
-            $customUrl = self::$customUrl . $dateBehind . '?token=' . self::$token;
+            $dateYesterday = date('Y-m-d', strtotime($dateNow . ' -' . $i . ' day'));
+            $customUrl = self::$customUrl . $dateYesterday . '?token=' . self::$token;
 
-            try {
-
-                $jsonResponse = file_get_contents($customUrl);
-                $rates = json_decode($jsonResponse, JSON_UNESCAPED_UNICODE);
-                $data = $rates['data'];
-                $statusCode = $rates['status_code'];
-
-            } catch (Exception $e) {
-
-                $response = [
-                    'error' => true,
-                    'status_text' => 'Internal server error',
-                    'status_code' => 500,
-                    'data' => null
-                ];
-
-                echo Flight::json($response);
-                die();
+            $validData = self::getDataFromUrl($rates, $customUrl);
+            if (!$validData) {
+                $response = self::prepareResponse(true, 'Internal server error', 500);
+                return Flight::json($response);
             }
 
-            if ($statusCode != 200) {
-                $response = [
-                    'error' => true,
-                    'status_text' => 'Service Unavailable',
-                    'status_code' => 503,
-                    'data' => null
-                ];
+            $data = $rates['data'];
+            $statusCode = $rates['status_code'];
 
-                echo Flight::json($response);
-                die();
+            if ($statusCode != 200) {
+                $response = self::prepareResponse(true, 'Service Unavailable', 503);
+                return Flight::json($response);
             }
 
             // status code == 200
-            foreach ($data as $rate) {
-
-                if ($rate['oznaka'] == $value) {
-                    $responseData[] = [
-                        'datum' => $rate['datum'],
-                        'kupoven' => $rate['kupoven'],
-                        'sreden' => $rate['sreden'],
-                        'prodazen' => $rate['prodazen'],
-                        'oznaka' => $rate['oznaka']
-                    ];
-                    break;
-                }
-            }
-
+            self::prepareResponseHistory($data, $value, $responseData);
         }
 
-        echo Flight::json($responseData);
-        die();
+        return Flight::json($responseData);
     }
 
 }
