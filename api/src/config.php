@@ -9,10 +9,10 @@ $dotenv->load();
 /**
  * Set default configuration data
  */
-ExchangeRateClass::$url = getenv('URL');
-ExchangeRateClass::$apiEndpoints = getenv('API_CONTENT');
-ExchangeRateClass::$customUrl =  getenv('MAIN_API_PATH');
-ExchangeRateClass::$token =  getenv('SECRET_TOKEN');
+ExchangeRateHelper::$url = getenv('URL');
+ExchangeRateHelper::$apiEndpoints = getenv('API_CONTENT');
+ExchangeRateHelper::$customUrl =  getenv('MAIN_API_PATH');
+ExchangeRateHelper::$token =  getenv('SECRET_TOKEN');
 
 
 /**

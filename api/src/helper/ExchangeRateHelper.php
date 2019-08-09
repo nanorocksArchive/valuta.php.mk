@@ -1,7 +1,7 @@
 <?php
 
 
-class ExchangeRateClass
+class ExchangeRateHelper
 {
 
     public static $url;
