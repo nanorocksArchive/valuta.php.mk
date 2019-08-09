@@ -1,46 +1,7 @@
 <?php
 
-class ConverterClass extends ExchangeRateClass
+class ConverterClass extends ExchangeRateHelper
 {
-
-    public $helper;
-
-    public function __construct(
-        ExchangeRateHelper $h
-    )
-    {
-        $this->helper = $h;
-    }
-
-    /**
-     *
-     * Validate request for converter
-     *
-     * @param $to
-     * @param $from
-     * @param $price
-     * @return int
-     */
-    public static function validateConverter($to, $from, $price): int
-    {
-        $validator = 0;
-
-        if (!is_numeric($price)) {
-            $validator = 1;
-        }
-
-        if (!ctype_alpha($from) || !ctype_alpha($to)) {
-            $validator = 1;
-        }
-
-        if ($from == $to) {
-            $validator = 1;
-        }
-
-        return $validator;
-    }
-
-
     /**
      * Convert price from from - to
      *
@@ -50,78 +11,51 @@ class ConverterClass extends ExchangeRateClass
      */
     public static function converter($from, $to, $price)
     {
-        $response = [
-            'error' => true,
-            'status_text' => 'Invalid parameters',
-            'status_code' => 200,
-            'data' => null
-        ];
-
+        $response = self::prepareResponse(true, 'Invalid parameters', 200);
         $validator = self::validateConverter($to, $from, $price);
         if ($validator) {
-            echo Flight::json($response);
-            die();
+            return Flight::json($response);
+        }
+
+        $validData = self::getDataFromUrl($rates);
+
+        if (!$validData) {
+            $response = self::prepareResponse(true, 'Internal server error', 500);
+            return Flight::json($response);
+        }
+
+        // if data is set and it's null or data it's not set in rating
+        if (!isset($rates['data']) || (isset($rates['data']) && $rates['data'] == null)) {
+            return Flight::json($response);
         }
 
         $from = strtoupper($from);
         $to = strtoupper($to);
 
-        $url = self::$url;
-        try {
+        // if find rating, will return array for $to and $from
+        self::findRating($to, $from, $rates);
 
-            $jsonResponse = file_get_contents($url);
-            $rates = json_decode($jsonResponse, JSON_UNESCAPED_UNICODE);
-
-        } catch (Exception $e) {
-
-            $response = [
-                'error' => true,
-                'status_text' => 'Internal server error',
-                'status_code' => 500,
-                'data' => null
-            ];
-
-            echo Flight::json($response);
-            die();
-        }
-
-        foreach ($rates['data'] as $rate) {
-            if ($rate['oznaka'] == $from) {
-                $from = $rate;
-            }
-            if ($rate['oznaka'] == $to) {
-                $to = $rate;
-            }
-        }
-
-        $denar = 0;
+        $isDenar = self::isValueDenar($to, $from, $whoIsDenar);
         $finalPrice = 0;
-        // FOR DENAR-VALUE ONLY
-        if (is_string($to) && strtoupper($to) == 'MKD') {
-            $finalPrice = (floatval($price) * floatval($from['sreden']));
-            $denar = 1;
-        } else if (is_string($from) && strtoupper($from) == 'MKD') {
-            $finalPrice = (floatval($price) / floatval($to['sreden']));
-            $denar = 1;
-        }
-
-        if (!$denar) {
+        if (!$isDenar) {
+            // If value is not in ratings list - return only response
             if (!is_array($to) || !is_array($from)) {
-                echo Flight::json($response);
-                die();
+                return Flight::json($response);
             }
 
             $finalPrice = (floatval($price) * floatval($from['sreden'])) / floatval($to['sreden']);
         }
 
-        $response['error'] = false;
-        $response['status_text'] = 'OK';
-        $response['status_code'] = 200;
-        $response['data'] = [
-            'price' => $finalPrice
-        ];
+        // From here we have denar
+        // If value is valid - MKD for $to or $from
+        if ($whoIsDenar == 'to') {
+            $finalPrice = (floatval($price) * floatval($from['sreden']));
+        }
+        if ($whoIsDenar == 'from') {
+            $finalPrice = (floatval($price) / floatval($to['sreden']));
+        }
 
-        echo Flight::json($response);
-        die();
+        $response = self::prepareResponse(false, 'OK', 200, ['price' => $finalPrice]);
+        return Flight::json($response);
     }
 }

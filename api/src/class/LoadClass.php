@@ -1,6 +1,6 @@
 <?php
 
-class LoadClass extends ExchangeRateClass
+class LoadClass extends ExchangeRateHelper
 {
 
     /**
@@ -8,7 +8,7 @@ class LoadClass extends ExchangeRateClass
      */
     public static function onload()
     {
-        Flight::render('index.php', array('endpoints' => self::$apiEndpoints));
+        return Flight::render('index.php', array('endpoints' => self::$apiEndpoints));
     }
 
 }
