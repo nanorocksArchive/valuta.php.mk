@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name='description'
+        content='CSS & JavaScript minifier. We remove whitespace, strips, comments. For this app we use a few common programming patterns for optimizes/shortens.' />
+    <meta name='keywords'
+        content='css, js, javascript, minifier, shorten, optimize, minify, programming, coding, optimization, frontend, front-end' />
+
+    <script src="https://kit.fontawesome.com/83fc83593c.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="CSS/skeleton.css">
+    <link rel="stylesheet" href="CSS/custom.css">
+    <title>Exchange rate </title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</head>
+
+<body onload="LoadTableData()">
+    
+<!-- Navigation menu -->
+<div class="container text-color">
+        <div class="row">
+                <div class="twelve columns">
+                       <p class="u-pull-left">Currency exchange </p>
+                       <p class="u-pull-right "><a class="language-link"href="#">MK</a>/<a class="language-link" href="#">ENG</a></p>
+                       
+                </div>
+            
+             </div>
+
+     <div class="row">
+        <div class="twelve columns">
+                <ul class="navigation">
+                    <li class="active"><a href="#">List</a></li>
+                    <li><a href="#">converter</a></li>
+                    <li><a href="#">History</a></li>
+                </ul>
+        </div>
+     </div>
+
+     <div class="row">
+         <h4 style="margin-top: 2rem;">Exchange rate of denar on 14/07/2019</h4>
+            <div class="twelve columns">
+                    <table class="u-full-width " id="CurrencyTable">
+                            <thead>
+                              <tr>
+                                <th>Flag</th>
+                                <th>Country</th>
+                                <th>Currency</th>
+                                <th>Value</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                             
+                            </tbody>
+                          </table>
+                          <p>Data was last time updated on 14/07/2019</p>
+
+           </div>
+     </div>
+
+     <div class="row footer">
+        <div class="twelve columns">
+            <p class="u-pull-left"><a class="language-link"href="#">privacy policy </a></p>
+            <p class="u-pull-right "><a class="language-link"href="#"><i class="fas fa-moon theme-active"></i></a>/
+              <a class="language-link" href="#"><i class="fas fa-sun"></i></a>
+            </p>
+      </div>
+     
+
+</div>
+
+<script>
+
+  var data;
+  
+  async function LoadTableData()
+  {
+    let response = await fetch("https://valuta.php.mk/api/list");
+  
+    if (response.ok) 
+    { // if HTTP-status is 200-299
+      // get the response body (see below)
+      let json = await response.json();
+      console.log(json);
+      data = json.data;
+      FillTable(data)
+  
+    } 
+    else 
+    {
+      alert("HTTP-Error: " + response.status);
+    }
+  }
+
+  function FillTable(data)
+  {
+    var Ctable = document.getElementById('CurrencyTable');
+
+
+    for(var i = 0;i < data.length;i++)
+    {
+      //html += "<a id='" + id1 +"'>link</a>";
+
+      var row = Ctable.insertRow(-1);
+
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+
+      cell1.innerHTML = "<img class='CountryImg' src='Images/"+ data[i].drzava_en +".png'>";
+      cell2.innerHTML = data[i].drzava_en;
+      cell3.innerHTML = data[i].valuta_en;
+      cell4.innerHTML = data[i].kupoven + "<i class='fas fa-info-circle table-info-icon'></i></p>";
+
+    }
+
+
+
+  }
+
+  </script>
+
+
+</body>
+
+</html>

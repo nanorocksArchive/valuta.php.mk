@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name='description'
+        content='CSS & JavaScript minifier. We remove whitespace, strips, comments. For this app we use a few common programming patterns for optimizes/shortens.' />
+    <meta name='keywords'
+        content='css, js, javascript, minifier, shorten, optimize, minify, programming, coding, optimization, frontend, front-end' />
+
+    <script src="https://kit.fontawesome.com/83fc83593c.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="CSS/skeleton.css">
+    <link rel="stylesheet" href="CSS/custom.css">
+    <title>Exchange rate </title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</head>
+
+<body>
+    
+<!-- Navigation menu -->
+<div class="container text-color">
+        <div class="row">
+                <div class="twelve columns">
+                       <p class="u-pull-left">Currency exchange</p>
+                       <p class="u-pull-right "><a class="language-link"href="#">MK</a>/<a class="language-link" href="#">ENG</a></p>
+                       
+                </div>
+            
+             </div>
+
+     <div class="row">
+        <div class="twelve columns">
+                <ul class="navigation">
+                    <li class="active"><a href="#">List</a></li>
+                    <li><a href="#">converter</a></li>
+                    <li><a href="#">History</a></li>
+                </ul>
+        </div>
+     </div>
+
+     <div class="row">
+        <div class="twelve columns" style="margin-top:2rem;margin-bottom:2rem;">
+            <select class="u-full-width input-size" id="FromC" style="Color:black;">
+                <option value="Option 1">Euro</option>
+                <option value="Option 2">Dolar</option>
+                <option value="Option 3">Denar</option>
+              </select>
+      </div>
+            <div class="twelve columns">
+                  <div id="chart" style="color:black"></div>
+                  <div style="text-align:center">Denar history in the last 15 days.</div>
+            </div>
+         </div>
+     
+
+         <div class="row footer">
+            <div class="twelve columns">
+                <p class="u-pull-left"><a class="language-link"href="#">privacy policy </a></p>
+                <p class="u-pull-right "><a class="language-link"href="#"><i class="fas fa-moon theme-active"></i></a>/
+                  <a class="language-link" href="#"><i class="fas fa-sun"></i></a>
+                </p>
+          </div>
+         
+    
+    </div>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+     var options = {
+      chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      series: [{
+        name: "Desktops",
+        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+      }],
+      title: {
+        text: 'Product Trends by Month',
+        align: 'left'
+      },
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          opacity: 0.5
+        },
+      },
+      xaxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+      }
+    }
+
+    var chart = new ApexCharts(
+      document.querySelector("#chart"),
+      options
+    );
+
+    chart.render();
+
+</script>
+</body>
+
+</html>
