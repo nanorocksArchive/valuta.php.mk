@@ -7,6 +7,7 @@
 
 * [Setup API](#setup-api)
 * [API endpoints](#api-endpoints)
+* [PHP unit tests](#php-unit-tests)
 * [Docker Devbox](#docker-devbox---api)
 * [Responsive design](#responsive-design)
 * [Apache Cordova export](#apache-cordova-export)
@@ -26,6 +27,9 @@
 - `GET /api/list` - show all exchange rates
 - `GET /api/converter/@from/@to/@price` - convert money value from deference value 
 - `GET /api/history/@value` - 15 days history for deference money types
+
+## PHP unit tests
+We use TDD and PHPUnit as development pattern for building the API.
 
 ## Docker Devbox - API
 
