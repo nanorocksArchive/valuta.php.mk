@@ -41,9 +41,9 @@
      <div class="row">
         <div class="twelve columns">
                 <ul class="navigation">
-                    <li class="active"><a href="#">List</a></li>
-                    <li><a href="#">converter</a></li>
-                    <li><a href="#">History</a></li>
+                  <li class="active"><a href="Index.html">List</a></li>
+                  <li><a href="Konverter.html">converter</a></li>
+                  <li><a href="Istorija.html">History</a></li>
                 </ul>
         </div>
      </div>
@@ -78,6 +78,20 @@
             </p>
       </div>
      
+
+</div>
+
+<h2>Modal Example</h2>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
 
 </div>
 
@@ -123,11 +137,9 @@
       cell1.innerHTML = "<img class='CountryImg' src='Images/"+ data[i].drzava_en +".png'>";
       cell2.innerHTML = data[i].drzava_en;
       cell3.innerHTML = data[i].valuta_en;
-      cell4.innerHTML = data[i].kupoven + "<i class='fas fa-info-circle table-info-icon'></i></p>";
-
+      cell4.innerHTML = data[i].kupoven + "<i class='fas fa-info-circle table-info-icon' id='tooltip"+ i +"'></i>";
+      
     }
-
-
 
   }
 
