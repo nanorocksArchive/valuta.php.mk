@@ -13,7 +13,7 @@ class ConverterClass extends ExchangeRateHelper
     {
         $response = self::prepareResponse(true, 'Invalid parameters', 200);
         $validator = self::validateConverter($to, $from, $price);
-        if ($validator) {
+        if (!$validator) {
             return Flight::json($response);
         }
 

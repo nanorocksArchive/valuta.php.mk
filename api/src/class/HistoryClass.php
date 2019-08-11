@@ -17,7 +17,7 @@ class HistoryClass extends ExchangeRateHelper
         }
 
         $validator = self::validateCurrencyValue($value, $rates['data']);
-        if ($validator) {
+        if (!$validator) {
             $response = self::prepareResponse(true, 'Invalid parameters', 200);
             return Flight::json($response);
         }
