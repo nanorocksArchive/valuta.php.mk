@@ -5,22 +5,22 @@
 require_once __DIR__ . './../vendor/autoload.php';
 
 
-$mainPath = __DIR__ . './../src';
+$mainPath = __DIR__ . './../src/';
 
 /**
  * Dependencies
  */
-require_once $mainPath . '/dependencies.php';
+require_once $mainPath . 'dependencies.php';
 
 /**
  * Config
  */
-require_once $mainPath . '/config.php';
+require_once $mainPath . 'config.php';
 
 /**
  * Routes
  */
-require_once $mainPath . '/routes.php';
+require_once $mainPath . 'route/api.php';
 
 /**
  * App Start
