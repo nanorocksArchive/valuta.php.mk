@@ -37,20 +37,25 @@ class ExchangeRateHelper
      * @param $price
      * @return int
      */
-    public static function validateConverter($to, $from, $price): int
+    public static function validateConverter($to, $from, $price)
     {
-        $validator = 0;
+        $validator = true;
 
         if (!is_numeric($price)) {
-            $validator = 1;
+            $validator = false;
         }
 
         if (!ctype_alpha($from) || !ctype_alpha($to)) {
-            $validator = 1;
+            $validator = false;
         }
 
         if ($from == $to) {
-            $validator = 1;
+            $validator = false;
+        }
+
+        if(floatval($price) == 0)
+        {
+            $validator = false;
         }
 
         return $validator;
@@ -87,9 +92,11 @@ class ExchangeRateHelper
         if (is_string($to) && strtoupper($to) == 'MKD') {
             $denar = true;
             $whoIsDenar = 'to';
+            return $denar;
         } else if (is_string($from) && strtoupper($from) == 'MKD') {
             $denar = true;
             $whoIsDenar = 'from';
+            return $denar;
         }
 
         return $denar;
@@ -122,18 +129,18 @@ class ExchangeRateHelper
      */
     public static function validateCurrencyValue($value, $data)
     {
-        if (isset($value) && !ctype_alpha($value)) {
-            return true;
+        if (!ctype_alpha($value) || empty($value)) {
+            return false;
         }
 
         $value = strtoupper($value);
         foreach ($data as $rate) {
             if ($value == $rate['oznaka']) {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     /**
