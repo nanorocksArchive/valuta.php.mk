@@ -38,6 +38,13 @@ class ExchangeRateTest extends TestCase{
             '50'
         );
         $this->assertTrue($validator);
+
+        $validator = ExchangeRateHelper::validateConverter(
+            'MKD',
+            'EU',
+            '-10'
+        );
+        $this->assertFalse($validator);
     }
 
     /**
