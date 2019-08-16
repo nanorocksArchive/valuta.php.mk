@@ -53,7 +53,7 @@ class ExchangeRateHelper
             $validator = false;
         }
 
-        if(floatval($price) == 0)
+        if(floatval($price) <= 0)
         {
             $validator = false;
         }
