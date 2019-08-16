@@ -16,8 +16,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="CSS/skeleton.css">
-    <link rel="stylesheet" href="CSS/custom.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
     <title>Exchange rate </title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -41,9 +41,9 @@
      <div class="row">
         <div class="twelve columns">
                 <ul class="navigation">
-                  <li class="active"><a href="Index.html">List</a></li>
-                  <li><a href="Konverter.html">converter</a></li>
-                  <li><a href="Istorija.html">History</a></li>
+                  <li class="active"><a href="index.html">List</a></li>
+                    <li><a href="converter.html">converter</a></li>
+                    <li><a href="history.html">History</a></li>
                 </ul>
         </div>
      </div>
@@ -81,16 +81,12 @@
 
 </div>
 
-<h2>Modal Example</h2>
-
-
 <!-- The Modal -->
 <div id="myModal" class="modal">
-
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p id="modalText" style="text-align:center">Some text in the Modal..</p>
   </div>
 
 </div>
@@ -114,7 +110,7 @@
     } 
     else 
     {
-      alert("HTTP-Error: " + response.status);
+      
     }
   }
 
@@ -134,14 +130,45 @@
       var cell3 = row.insertCell(2);
       var cell4 = row.insertCell(3);
 
-      cell1.innerHTML = "<img class='CountryImg' src='Images/"+ data[i].drzava_en +".png'>";
+      cell1.innerHTML = "<img class='CountryImg' src='images/"+ data[i].drzava_en.toLowerCase() +".png'>";
       cell2.innerHTML = data[i].drzava_en;
       cell3.innerHTML = data[i].valuta_en;
-      cell4.innerHTML = data[i].kupoven + "<i class='fas fa-info-circle table-info-icon' id='tooltip"+ i +"'></i>";
+      var float = parseFloat(data[i].kupoven, 10);
+      cell4.innerHTML = "<span id='tt"+ i +"'>" + float.toFixed(2) + "<i class='fas fa-info-circle table-info-icon' id='tooltip"+ i +"'></i></span>";
+      
+      //click event for showing modal
+      document.getElementById("tt"+i).addEventListener("click", function(e) 
+      {
+        var tempi = e.target.id.slice(2, 3); // Get id from clicked element
+        var modalText = document.getElementById("modalText");
+        modalText.innerHTML = "Prodazen: "+ parseFloat(data[tempi].prodazen,10).toFixed(2) + "</br>" + "Sreden: " + parseFloat(data[tempi].sreden,10).toFixed(2);
+        modal.style.display = "block";
+        
+       });
       
     }
 
   }
+
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
 
   </script>
 

@@ -78,6 +78,11 @@ ul
     margin-right: 1rem;
   }
 
+
+  .apexcharts-menu-icon
+  {
+    display: none !important;
+  }
   /* Modal tooltip */
   /* The Modal (background) */
 .modal 
