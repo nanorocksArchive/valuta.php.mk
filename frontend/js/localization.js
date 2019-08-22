@@ -10,18 +10,55 @@ var lang_mk = {
 };
 
 var lang_en = {
-    'history-description': 'History on value in last 15 days'
+    'history-description': 'History on value in last 15 days',
+    'home-menu': 'Home',
+    'converter-menu': 'Converter',
+    'history-menu': 'History Exchange rate',
+    'privacy': 'Private policy',
+    'main-title': 'Exchange rate Macedonia',
+    'title-history-page': 'History on exchange rate'
 
 };
 
+function changeLanguage(lang)
+{
+    Object.keys(lang).forEach(function(key){
+        //console.log(key, lang[key]);
+
+        key = key.toString();
+
+        let el = document.getElementById(key);
+
+        el.innerHTML = lang[key];
+    });
+}
+
+function onLoad()
+{
+    let langStorage = localStorage.getItem('lang');
+    if(langStorage == null)
+    {
+        changeLanguage(lang_mk);
+    }else if(langStorage === 'mk')
+    {
+        changeLanguage(lang_mk);
+    }else{
+        changeLanguage(lang_en);
+    }
+}
+
+onLoad();
 
 
-Object.keys(lang_mk).forEach(function(key){
-    console.log(key, lang_mk[key]);
+let langMK = document.getElementById('mk');
+let langEN = document.getElementById('en');
 
-    key = key.toString();
+langMK.addEventListener('click', function (e) {
+    localStorage.setItem('lang', 'mk');
+    window.location.reload();
+});
 
-    let el = document.getElementById(key);
-
-    el.innerHTML = lang_mk[key];
+langEN.addEventListener('click', function (e) {
+    localStorage.setItem('lang', 'en');
+    window.location.reload();
 });
