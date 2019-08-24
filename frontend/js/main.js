@@ -54,7 +54,15 @@ let DropDownClass = function () {
         lang = lang.getLang();
 
         let val = null;
+
         let html = '';
+        if(mkdOption !== '')
+        {
+            let selectOptionText = this.getOptionsConvertText();
+            html += `<option selected="selected" disabled>${selectOptionText.optionTxt}</option>`
+
+        }
+
         for (let i = 0; i < data.length; i++) {
 
             if (lang === 'mk') {
@@ -68,17 +76,53 @@ let DropDownClass = function () {
                 html += mkdOption;
             }
 
-            html += `<option value="${data[i].oznaka}">${val}</option>`;
+            html += `<option value="${data[i].oznaka.toUpperCase()}">${val}</option>`;
         }
 
         block.innerHTML = html;
     };
 
-    this.randomizeSelectedOption = function(blockId)
-    {
+    this.randomizeSelectedOption = function(blockId) {
         let selected = document.getElementById(blockId);
+        //console.log(selected);
+    };
 
-        console.log(selected);
+    this.getOptionsConvertText = function () {
+        let lang = new LangClass();
+        lang = lang.getLang();
+
+        if (lang === 'mk') {
+            return {
+                'optionTxt': 'ОДБЕРЕТЕ ВАЛУТА',
+
+            };
+        }
+        if (lang === 'en') {
+            return {
+                'optionTxt': 'SELECT VALUE',
+            };
+        }
+    };
+
+    this.changeDropDownEvent = function(el1, el2){
+
+        let value = el2.value;
+
+        for(let i = 0; i < el1.options.length; i++)
+        {
+            el1.options[i].style = 'display: inline';
+        }
+
+        for(let i = 0; i < el1.options.length; i++)
+        {
+            let optionVal = el1.options[i];
+            if(optionVal.value === value)
+            {
+                el1.options[i].style = 'display: none';
+                break;
+            }
+        }
+
     }
 };
 
@@ -94,7 +138,7 @@ let ChartClass = function () {
 
         let data = await fetch.data(endpoint);
         if (data == null) {
-            console.log(fetch.msg500);
+            //console.log(fetch.msg500);
             return null;
         }
 

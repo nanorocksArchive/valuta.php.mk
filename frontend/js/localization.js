@@ -1,11 +1,13 @@
 var lang_mk = {
-    'history-description': 'Istorija na valuta vo poslednite 15 dena',
-    'home-menu': 'Pocetna',
-    'converter-menu': 'Konvertor',
-    'history-menu': 'Istorija na podatoci',
-    'privacy': 'Politika na privatnost',
-    'main-title': 'Kursna Lista Makedonija',
-    'title-history-page': 'Istorija na valuti'
+    'history-description': 'Историја на валути од последните 15 дена',
+    'home-menu': 'Почетна',
+    'converter-menu': 'Конвертер',
+    'history-menu': 'Историја на податоци',
+    'privacy': 'Политика и приватност',
+    'main-title': 'Курсна листа Македонија',
+    'title-history-page': 'Историја на валути',
+    'mkd-option-first': 'МАКЕДОНСКИ ДЕНАР',
+    'mkd-option-second': 'МАКЕДОНСКИ ДЕНАР'
 
 };
 
@@ -16,7 +18,9 @@ var lang_en = {
     'history-menu': 'History Exchange rate',
     'privacy': 'Private policy',
     'main-title': 'Exchange rate Macedonia',
-    'title-history-page': 'History on exchange rate'
+    'title-history-page': 'History on exchange rate',
+    'mkd-option-first': 'MACEDONIAN DENAR',
+    'mkd-option-second': 'MACEDONIAN DENAR'
 
 };
 
@@ -26,10 +30,10 @@ function changeLanguage(lang)
         //console.log(key, lang[key]);
 
         key = key.toString();
-
-        let el = document.getElementById(key);
-
-        el.innerHTML = lang[key];
+        try{
+            let el = document.getElementById(key);
+            el.innerHTML = lang[key];
+        }catch (e) {}
     });
 }
 
