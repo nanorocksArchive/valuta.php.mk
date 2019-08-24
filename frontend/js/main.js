@@ -35,12 +35,16 @@ let DropDownClass = function () {
 
     this.endpoint = "https://valuta.php.mk/api/list";
 
-    this.fillData = async function (block) {
+    this.fillData = async function (block, mkdOption='') {
 
         let fetch = new FetchClass();
         let data = await fetch.data(this.endpoint);
 
         data = data.data;
+        data = data.sort( function() {
+          return Math.random() - 0.5
+        });
+
         if (data == null) {
             console.log(fetch.msg500);
             return fetch.msg500;
@@ -59,11 +63,23 @@ let DropDownClass = function () {
                 val = data[i].valuta_en.toUpperCase();
             }
 
+            if(i === 3)
+            {
+                html += mkdOption;
+            }
+
             html += `<option value="${data[i].oznaka}">${val}</option>`;
         }
 
         block.innerHTML = html;
     };
+
+    this.randomizeSelectedOption = function(blockId)
+    {
+        let selected = document.getElementById(blockId);
+
+        console.log(selected);
+    }
 };
 
 let ChartClass = function () {
