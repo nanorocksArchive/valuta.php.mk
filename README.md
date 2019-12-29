@@ -42,9 +42,3 @@ We use TDD and PHPUnit as development pattern for building the API.
 ### Run the container from image
 
 - `docker run -p 8080:80 -d -v $(pwd):/var/www/exchange-rate-api exchange-rate-api`
-
-
-## Responsive design
-
-
-## Apache Cordova export
