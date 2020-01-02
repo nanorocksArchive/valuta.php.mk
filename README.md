@@ -22,9 +22,9 @@
 ## API endpoints
 ##### GET
 - `GET /` - html for api endpoints
-- `GET /api/list` - show all exchange rates
-- `GET /api/converter/@from/@to/@price` - convert money value from deference value 
-- `GET /api/history/@value` - 15 days history for deference money types
+- `POST /api/list` - show all exchange rates
+- `POST /api/converter/@from/@to/@price` - convert money value from deference value 
+- `POST /api/history/@value` - 15 days history for deference money types
 
 ## PHP unit tests
 We use TDD and PHPUnit as development pattern for building the API.
@@ -39,4 +39,4 @@ We use TDD and PHPUnit as development pattern for building the API.
 
 ### Run the container from image
 
-- `docker run -p 8080:80 -d -v $(pwd):/var/www/exchange-rate-api exchange-rate-api`
+- `docker run -p 8080:80 -d -v $(pwd)/api:/var/www/exchange-rate-api exchange-rate-api`
