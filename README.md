@@ -9,8 +9,6 @@
 * [API endpoints](#api-endpoints)
 * [PHP unit tests](#php-unit-tests)
 * [Docker Devbox](#docker-devbox---api)
-* [Responsive design](#responsive-design)
-* [Apache Cordova export](#apache-cordova-export)
 
 ## Setup API
 - navigate to root dir `cd <project_name>`
