@@ -8,7 +8,7 @@ class LoadClass extends ExchangeRateHelper
      */
     public static function onload()
     {
-        return Flight::render('form.php', array('endpoints' => self::$apiEndpoints));
+        return Flight::render('index.php', array('endpoints' => self::$apiEndpoints));
     }
 
 }

@@ -10,6 +10,19 @@ class HistoryClass extends ExchangeRateHelper
      */
     public static function history($value)
     {
+        $app = Flight::request()->data->getData()['app'];
+        if(!isset($app))
+        {
+            $response = self::prepareResponse(true, 'Param app is missing', 422);
+            return Flight::json($response);
+        }
+
+        if($app != ExchangeRateHelper::$appId)
+        {
+            $response = self::prepareResponse(true, 'Param app is not appropriate', 400);
+            return Flight::json($response);
+        }
+
         $haveData = self::getDataFromUrl($rates);
         if (!$haveData || $rates == null || !isset($rates['data'])) {
             $response = self::prepareResponse(true, 'Internal server error', 500);
@@ -18,7 +31,7 @@ class HistoryClass extends ExchangeRateHelper
 
         $validator = self::validateCurrencyValue($value, $rates['data']);
         if (!$validator) {
-            $response = self::prepareResponse(true, 'Invalid parameters', 200);
+            $response = self::prepareResponse(true, 'Invalid parameters', 400);
             return Flight::json($response);
         }
 
