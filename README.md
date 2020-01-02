@@ -20,7 +20,6 @@
 
 
 ## API endpoints
-##### GET
 - `GET /` - html for api endpoints
 - `POST /api/list` - show all exchange rates
 - `POST /api/converter/@from/@to/@price` - convert money value from deference value 
