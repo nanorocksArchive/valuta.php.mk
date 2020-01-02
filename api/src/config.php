@@ -13,6 +13,7 @@ ExchangeRateHelper::$url = getenv('URL');
 ExchangeRateHelper::$apiEndpoints = getenv('API_CONTENT');
 ExchangeRateHelper::$customUrl =  getenv('MAIN_API_PATH');
 ExchangeRateHelper::$token =  getenv('SECRET_TOKEN');
+ExchangeRateHelper::$appId = getenv('API_CALL_ID');
 
 
 /**

@@ -12,6 +12,8 @@ class ExchangeRateHelper
 
     public static $token;
 
+    public static $appId;
+
     /**
      * Prepare response to return
      * @param $error
