@@ -1,28 +1,28 @@
 <?php
-/**
- * Composer
- */
-require_once __DIR__ . './../vendor/autoload.php';
 
+/*
+|--------------------------------------------------------------------------
+| Create The Application
+|--------------------------------------------------------------------------
+|
+| First we need to get an application instance. This creates an instance
+| of the application / container and bootstraps the application so it
+| is ready to receive HTTP / Console requests from the environment.
+|
+*/
 
-$mainPath = __DIR__ . './../src/';
+$app = require __DIR__.'/../bootstrap/app.php';
 
-/**
- * Dependencies
- */
-require_once $mainPath . 'dependencies.php';
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request
+| through the kernel, and send the associated response back to
+| the client's browser allowing them to enjoy the creative
+| and wonderful application we have prepared for them.
+|
+*/
 
-/**
- * Config
- */
-require_once $mainPath . 'config.php';
-
-/**
- * Routes
- */
-require_once $mainPath . 'route/api.php';
-
-/**
- * App Start
- */
-Flight::start();
+$app->run();
