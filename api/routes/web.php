@@ -11,23 +11,77 @@
 |
 */
 
-$router->get('/', function () {
-    return "API DOC HERE";
+$router->get('/', function () use ($router) {
+    return response([
+        'info' => "API v.2.0",
+        'support' => [
+            'accessKey' => true,
+        ],
+        'describe' => [
+            '/api/list' => [
+                'request' => [
+                    'method' => 'post',
+                    'header' => [
+                        'content-type' => 'application/json'
+                    ],
+                    'body' => [
+                        'accessKey' => true
+                    ]
+                ],
+                'response' => [
+                    'type' => 'json',
+                    'data' => '...'
+                ]
+            ],
+            '/api/converter/{from}/{to}/{price}' => [
+                'request' => [
+                    'method' => 'post',
+                    'header' => [
+                        'content-type' => 'application/json'
+                    ],
+                    'body' => [
+                        'accessKey' => true
+                    ]
+                ],
+                'response' => [
+                    'type' => 'json',
+                    'data' => '...'
+                ]
+            ],
+            '/api/history/{value}' => [
+                'request' => [
+                    'method' => 'post',
+                    'header' => [
+                        'content-type' => 'application/json'
+                    ],
+                    'body' => [
+                        'accessKey' => true
+                    ]
+                ],
+                'response' => [
+                    'type' => 'json',
+                    'data' => '...'
+                ]
+            ]
+        ]
+
+    ], 200)
+        ->header('Content-Type', 'application/json');
 });
 
 $router->group(['prefix' => 'api', 'middleware' => 'keyAccess'], function () use ($router) {
-    $router->get('list', [
-        'as' => 'rate.list', 
+    $router->post('list', [
+        'as' => 'rate.list',
         'uses' => 'RateController@get'
     ]);
-    
-    $router->get('converter/{from}/{to}/{price}', [
-        'as' => 'convert.value', 
+
+    $router->post('converter/{from}/{to}/{price}', [
+        'as' => 'convert.value',
         'uses' => 'ConverterController@values'
     ]);
-    
-    $router->get('history/{value}', [
-        'as' => 'hisotry.value', 
+
+    $router->post('history/{value}', [
+        'as' => 'history.value',
         'uses' => 'ValueController@history'
     ]);
 });
