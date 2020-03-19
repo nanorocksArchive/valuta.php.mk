@@ -249,7 +249,7 @@
         },
         {
             "name": "illuminate/auth",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/auth.git",
@@ -300,7 +300,7 @@
         },
         {
             "name": "illuminate/broadcasting",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/broadcasting.git",
@@ -351,7 +351,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -399,7 +399,7 @@
         },
         {
             "name": "illuminate/cache",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/cache.git",
@@ -450,7 +450,7 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -494,7 +494,7 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
@@ -548,7 +548,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -592,16 +592,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "10eb9fd5014e80296d254ae38ff1afe52d515a66"
+                "reference": "075d70c8d621e474d10279bf62c19e121be30e95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/10eb9fd5014e80296d254ae38ff1afe52d515a66",
-                "reference": "10eb9fd5014e80296d254ae38ff1afe52d515a66",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/075d70c8d621e474d10279bf62c19e121be30e95",
+                "reference": "075d70c8d621e474d10279bf62c19e121be30e95",
                 "shasum": ""
             },
             "require": {
@@ -632,20 +632,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2020-03-09T13:23:43+00:00"
+            "time": "2020-03-16T13:40:39+00:00"
         },
         {
             "name": "illuminate/database",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "a3d3978106f2d4dc4f9b1906f6aba96c48bd96c7"
+                "reference": "889c65acf257f7bf8f71d506a2d09e430c8400fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/a3d3978106f2d4dc4f9b1906f6aba96c48bd96c7",
-                "reference": "a3d3978106f2d4dc4f9b1906f6aba96c48bd96c7",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/889c65acf257f7bf8f71d506a2d09e430c8400fb",
+                "reference": "889c65acf257f7bf8f71d506a2d09e430c8400fb",
                 "shasum": ""
             },
             "require": {
@@ -693,11 +693,11 @@
                 "orm",
                 "sql"
             ],
-            "time": "2020-03-10T12:57:36+00:00"
+            "time": "2020-03-17T13:23:53+00:00"
         },
         {
             "name": "illuminate/encryption",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/encryption.git",
@@ -744,7 +744,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -789,7 +789,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -842,7 +842,7 @@
         },
         {
             "name": "illuminate/hashing",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/hashing.git",
@@ -886,16 +886,16 @@
         },
         {
             "name": "illuminate/http",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/http.git",
-                "reference": "c3474eb0811d923d761714123e86bb07b77de19b"
+                "reference": "e21bf44b3b66e405e78ce9ba8ee6419b479512e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/http/zipball/c3474eb0811d923d761714123e86bb07b77de19b",
-                "reference": "c3474eb0811d923d761714123e86bb07b77de19b",
+                "url": "https://api.github.com/repos/illuminate/http/zipball/e21bf44b3b66e405e78ce9ba8ee6419b479512e2",
+                "reference": "e21bf44b3b66e405e78ce9ba8ee6419b479512e2",
                 "shasum": ""
             },
             "require": {
@@ -934,11 +934,11 @@
             ],
             "description": "The Illuminate Http package.",
             "homepage": "https://laravel.com",
-            "time": "2020-03-09T13:23:43+00:00"
+            "time": "2020-03-17T13:45:32+00:00"
         },
         {
             "name": "illuminate/log",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/log.git",
@@ -983,7 +983,7 @@
         },
         {
             "name": "illuminate/pagination",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
@@ -1028,7 +1028,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -1072,16 +1072,16 @@
         },
         {
             "name": "illuminate/queue",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/queue.git",
-                "reference": "d889828fc81656b853512d3471ec3b777ee49dc9"
+                "reference": "7a7beb5ad39c1e6fa4feab9562f4a97586450dd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/queue/zipball/d889828fc81656b853512d3471ec3b777ee49dc9",
-                "reference": "d889828fc81656b853512d3471ec3b777ee49dc9",
+                "url": "https://api.github.com/repos/illuminate/queue/zipball/7a7beb5ad39c1e6fa4feab9562f4a97586450dd5",
+                "reference": "7a7beb5ad39c1e6fa4feab9562f4a97586450dd5",
                 "shasum": ""
             },
             "require": {
@@ -1095,6 +1095,7 @@
                 "illuminate/support": "^7.0",
                 "opis/closure": "^3.1",
                 "php": "^7.2.5",
+                "ramsey/uuid": "^3.7",
                 "symfony/process": "^5.0"
             },
             "suggest": {
@@ -1127,11 +1128,11 @@
             ],
             "description": "The Illuminate Queue package.",
             "homepage": "https://laravel.com",
-            "time": "2020-03-12T11:43:13+00:00"
+            "time": "2020-03-17T13:50:05+00:00"
         },
         {
             "name": "illuminate/session",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/session.git",
@@ -1182,16 +1183,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "ca1af56ffbac9361da042e6ee0ad4ebcbbbae515"
+                "reference": "68915182f18dca20e6c27b82e4007c11cf25f165"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/ca1af56ffbac9361da042e6ee0ad4ebcbbbae515",
-                "reference": "ca1af56ffbac9361da042e6ee0ad4ebcbbbae515",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/68915182f18dca20e6c27b82e4007c11cf25f165",
+                "reference": "68915182f18dca20e6c27b82e4007c11cf25f165",
                 "shasum": ""
             },
             "require": {
@@ -1240,20 +1241,20 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2020-03-12T12:48:26+00:00"
+            "time": "2020-03-16T13:40:39+00:00"
         },
         {
             "name": "illuminate/testing",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/testing.git",
-                "reference": "7441e2ca29bf52408c2b99eb026b0277d35e60d0"
+                "reference": "b6473c86d1e3bae4b4c332a7e87d7b7f035c811f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/testing/zipball/7441e2ca29bf52408c2b99eb026b0277d35e60d0",
-                "reference": "7441e2ca29bf52408c2b99eb026b0277d35e60d0",
+                "url": "https://api.github.com/repos/illuminate/testing/zipball/b6473c86d1e3bae4b4c332a7e87d7b7f035c811f",
+                "reference": "b6473c86d1e3bae4b4c332a7e87d7b7f035c811f",
                 "shasum": ""
             },
             "require": {
@@ -1291,11 +1292,11 @@
             ],
             "description": "The Illuminate Testing package.",
             "homepage": "https://laravel.com",
-            "time": "2020-03-09T21:01:26+00:00"
+            "time": "2020-03-14T14:49:42+00:00"
         },
         {
             "name": "illuminate/translation",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/translation.git",
@@ -1341,7 +1342,7 @@
         },
         {
             "name": "illuminate/validation",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/validation.git",
@@ -1394,16 +1395,16 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v7.1.1",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
-                "reference": "ff3239649f936e2a41b17d0f2eed35f7aca63428"
+                "reference": "839321e2bc95eca3f4c864582ed14d397cbf21e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/ff3239649f936e2a41b17d0f2eed35f7aca63428",
-                "reference": "ff3239649f936e2a41b17d0f2eed35f7aca63428",
+                "url": "https://api.github.com/repos/illuminate/view/zipball/839321e2bc95eca3f4c864582ed14d397cbf21e0",
+                "reference": "839321e2bc95eca3f4c864582ed14d397cbf21e0",
                 "shasum": ""
             },
             "require": {
@@ -1438,20 +1439,20 @@
             ],
             "description": "The Illuminate View package.",
             "homepage": "https://laravel.com",
-            "time": "2020-03-12T12:55:42+00:00"
+            "time": "2020-03-17T14:08:27+00:00"
         },
         {
             "name": "laravel/lumen-framework",
-            "version": "v7.0.0",
+            "version": "v7.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/lumen-framework.git",
-                "reference": "ca71a4f55cd204d29bbe0ee3955f1de868991ca9"
+                "reference": "9c0a3815bbce880f18bdee25f12287b2d0c6c6d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/ca71a4f55cd204d29bbe0ee3955f1de868991ca9",
-                "reference": "ca71a4f55cd204d29bbe0ee3955f1de868991ca9",
+                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/9c0a3815bbce880f18bdee25f12287b2d0c6c6d3",
+                "reference": "9c0a3815bbce880f18bdee25f12287b2d0c6c6d3",
                 "shasum": ""
             },
             "require": {
@@ -1484,6 +1485,7 @@
                 "symfony/error-handler": "^5.0",
                 "symfony/http-foundation": "^5.0",
                 "symfony/http-kernel": "^5.0",
+                "symfony/mime": "^5.0",
                 "symfony/var-dumper": "^5.0",
                 "vlucas/phpdotenv": "^4.0"
             },
@@ -1527,7 +1529,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2020-03-09T09:55:05+00:00"
+            "time": "2020-03-16T14:57:42+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1788,6 +1790,51 @@
             "time": "2019-11-29T22:36:02+00:00"
         },
         {
+            "name": "paragonie/random_compat",
+            "version": "v9.99.99",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*",
+                "vimeo/psalm": "^1"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "polyfill",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
             "name": "phpoption/phpoption",
             "version": "1.7.2",
             "source": {
@@ -2031,6 +2078,93 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "ramsey/uuid",
+            "version": "3.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "7e1633a6964b48589b142d60542f9ed31bd37a92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/7e1633a6964b48589b142d60542f9ed31bd37a92",
+                "reference": "7e1633a6964b48589b142d60542f9ed31bd37a92",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "paragonie/random_compat": "^1 | ^2 | 9.99.99",
+                "php": "^5.4 | ^7 | ^8",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "replace": {
+                "rhumsaa/uuid": "self.version"
+            },
+            "require-dev": {
+                "codeception/aspect-mock": "^1 | ^2",
+                "doctrine/annotations": "^1.2",
+                "goaop/framework": "1.0.0-alpha.2 | ^1 | ^2.1",
+                "jakub-onderka/php-parallel-lint": "^1",
+                "mockery/mockery": "^0.9.11 | ^1",
+                "moontoast/math": "^1.1",
+                "paragonie/random-lib": "^2",
+                "php-mock/php-mock-phpunit": "^0.3 | ^1.1",
+                "phpunit/phpunit": "^4.8 | ^5.4 | ^6.5",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "suggest": {
+                "ext-ctype": "Provides support for PHP Ctype functions",
+                "ext-libsodium": "Provides the PECL libsodium extension for use with the SodiumRandomGenerator",
+                "ext-openssl": "Provides the OpenSSL extension for use with the OpenSslGenerator",
+                "ext-uuid": "Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator",
+                "moontoast/math": "Provides support for converting UUID to 128-bit integer (in string form).",
+                "paragonie/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
+                "ramsey/uuid-console": "A console application for generating UUIDs with ramsey/uuid",
+                "ramsey/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ramsey\\Uuid\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                },
+                {
+                    "name": "Marijn Huizendveld",
+                    "email": "marijn.huizendveld@gmail.com"
+                },
+                {
+                    "name": "Thibaud Fabre",
+                    "email": "thibaud@aztech.io"
+                }
+            ],
+            "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
+            "homepage": "https://github.com/ramsey/uuid",
+            "keywords": [
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "time": "2020-02-21T04:36:14+00:00"
         },
         {
             "name": "symfony/console",
@@ -3225,16 +3359,16 @@
         },
         {
             "name": "voku/portable-ascii",
-            "version": "1.4.9",
+            "version": "1.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/voku/portable-ascii.git",
-                "reference": "9fd2b224c71448b5f84aef9d499a1428d79776a2"
+                "reference": "240e93829a5f985fab0984a6e55ae5e26b78a334"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/9fd2b224c71448b5f84aef9d499a1428d79776a2",
-                "reference": "9fd2b224c71448b5f84aef9d499a1428d79776a2",
+                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/240e93829a5f985fab0984a6e55ae5e26b78a334",
+                "reference": "240e93829a5f985fab0984a6e55ae5e26b78a334",
                 "shasum": ""
             },
             "require": {
@@ -3270,7 +3404,7 @@
                 "clean",
                 "php"
             ],
-            "time": "2020-03-06T02:47:42+00:00"
+            "time": "2020-03-13T01:23:26+00:00"
         }
     ],
     "packages-dev": [
@@ -3579,18 +3713,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "arne@blankerts.de"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "email": "sebastian@phpeople.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpeople.de"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
@@ -3626,18 +3760,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "arne@blankerts.de"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "email": "sebastian@phpeople.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpeople.de"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library for handling version information and constraints",
@@ -3958,8 +4092,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
@@ -4000,8 +4134,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Simple template engine.",
@@ -4049,8 +4183,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Utility class for timing",
@@ -4756,8 +4890,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
@@ -4799,8 +4933,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
