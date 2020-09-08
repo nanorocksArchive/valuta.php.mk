@@ -1,0 +1,22 @@
+<div class="form-group p-1">
+  <div class="dropdown">
+    <button
+      class="btn btn-outline-secondary dropdown-toggle"
+      type="button"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      {{ title }}
+    </button>
+    <ul class="dropdown-menu">
+      <li
+        class="dropdown-item"
+        *ngFor="let rate of rates"
+        (click)="selectedRate(rate)"
+      >
+        {{ rate.contryPriceEn }}
+      </li>
+    </ul>
+  </div>
+</div>

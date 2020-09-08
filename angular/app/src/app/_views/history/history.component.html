@@ -1,0 +1,27 @@
+<div class="container pt-5 mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title h2 pt-3">
+            15 days history on selected exchange rate
+          </h1>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+              <app-dropdown
+                title="Select exchange rate"
+                [rates]="rates"
+                (newItemEvent)="setFromValue($event)"
+              ></app-dropdown>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <app-my-line-chart [dates]="dates" [(selectedRates)]="selectedRates" [(selectedRatesValue)]="selectedRatesValue"></app-my-line-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

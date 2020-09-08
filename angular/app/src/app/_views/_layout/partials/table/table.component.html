@@ -1,0 +1,18 @@
+<div class="table-responsive-xl">
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" *ngFor="let col of tableColumns">{{col}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rate of rates">
+      <th scope="row">{{ rate.contryEn }}</th>
+      <td>{{ rate.contryPriceEn }}</td>
+      <td>{{ rate.customerPrice }}</td>
+      <td>{{ rate.sellerPrice }}</td>
+      <td>{{ rate.avgPrice }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

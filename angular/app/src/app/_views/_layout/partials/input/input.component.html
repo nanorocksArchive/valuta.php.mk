@@ -1,0 +1,15 @@
+<div class="form-group pt-0">
+  <input
+    type="{{type}}"
+    class="form-control"
+    id="rate-value"
+    aria-describedby="rate-value"
+    placeholder="Example. 123.324"
+    disabled="{{disabled}}"
+    min="1" step="any"
+    (keyup)="getRateValue($event)"
+  />
+  <small id="rate-value" class="form-text text-muted"
+    >Only numbers allowed</small
+  >
+</div>
