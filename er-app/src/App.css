@@ -1,0 +1,59 @@
+.about-figure {
+  max-width: 100%;
+  border: 15px solid #fff;
+}
+
+.mw-100 {
+  max-width: 100%;
+}
+
+.john-color-text {
+  color: #fffcf4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.address-no {
+  margin-top: 10px;
+}
+
+.address-num {
+  margin-top: 21px;
+}
+
+.email {
+  margin-top: 21px;
+}
+
+.contact-us {
+  text-align: center;
+  margin-top: 45px;
+}
+
+.contact-us-color {
+  color: #111315;
+}
+
+.contact-us-text {
+  text-align: center;
+}
+
+.bnt-submit {
+  background: #081b30;
+}
+
+.newsletter {
+  color: #ffffff;
+}
+
+.custom-input-email {
+  border-bottom-left-radius: 20px !important;
+  border-top-left-radius: 20px !important;
+}
+
+.custom-input-email-btn {
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
